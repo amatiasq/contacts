@@ -24,7 +24,8 @@ export default class ContactList extends React.Component {
   }
 
   render() {
-    let list = this.state.contacts.map(contact => <li>{contact.name}</li>);
+    let list = this.state.contacts
+      .map(contact => <li>{contact.firstName} {contact.lastName}</li>);
 
     return (
       <div>

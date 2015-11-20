@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dispatcher from '../tools/dispatcher';
 import Router from '../router/router';
+import Modal from '../widgets/modal/modal';
 import ContactsList from '../contacts/contact-list';
-import ContactsView from '../contacts/contact-view';
-import ContactsEdit from '../contacts/contact-edit';
+// import ContactsView from '../contacts/contact-view';
+import ContactEdit from '../contacts/contact-edit';
 
 
 import {
@@ -25,31 +26,32 @@ const config = {
     template: (
       <div>
         <ContactsList />
-        <ContactEdit isNew={true} />
+        <Modal><ContactEdit isNew={true} /></Modal>
       </div>
     ),
   },
-
+/*
   [VIEW_CONTACT]: {
     url: '/contact/{id}',
     handler: params => (
       <div>
         <ContactsList />
-        <ContactView id={params.id} />
+        <Modal><ContactView id={params.id} /></Modal>
       </div>
     ),
-  }
+  },
 
   [EDIT_CONTACT]: {
     url: '/contact/{id}/edit',
     handler: params => (
       <div>
         <ContactsList />
-        <ContactEdit id={params.id} />
+        <Modal><ContactEdit id={params.id} /></Modal>
       </div>
     ),
   }
-});
+*/
+};
 
 
 ReactDOM.render(

@@ -8,8 +8,10 @@ export default class Modal extends React.Component {
 
   render() {
     return (
-      <div className="modal-container">
-        {this.props.children}
+      <div className="overlay">
+        <div className="modal-container">
+          {this.props.children}
+        </div>
       </div>
     );
   }

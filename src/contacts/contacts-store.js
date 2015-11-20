@@ -1,11 +1,12 @@
-import Store from '../flux/store';
-import Dispatcher from '../flux/dispatcher';
-import * as ContactsConstants from './contacts-constants';
+import Store from '../tools/store';
+import Dispatcher from '../tools/dispatcher';
+import { goToList } from '../app/actions';
+import * as constants from '../app/constants';
 
 
-class ContactsStore extends Store {
+export default new class ContactsStore extends Store {
   constructor() {
-    super();
+    super(Dispatcher);
     this._contacts = [];
   }
 
@@ -13,19 +14,16 @@ class ContactsStore extends Store {
     return this._contacts;
   }
 
-  handle(payload) {
+  _handle(payload) {
     switch (payload.type) {
-      case ContactsConstants.ADD_CONTACT:
-        this._contacts.push({ name: payload.name });
-        this.emitChange();
+      case constants.CREATE_CONTACT:
+        this._contacts.push(payload.data);
+        this._emitChange();
+
+        // HACK: This is not going to be like this with a good Dispatcher implementation
+        setTimeout(() => goToList(), 0);
+
         break;
     }
   }
 }
-
-
-let store = new ContactsStore();
-Dispatcher.register(payload => store.handle(payload));
-export default store;
-
-

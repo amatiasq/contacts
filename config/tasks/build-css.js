@@ -6,7 +6,7 @@ var rename = require('gulp-rename');
 
 
 gulp.task('build:css', function() {
-  return gulp.src('./src/styles.less')
+  return gulp.src('./src/app/styles.less')
     .pipe(less({ paths: [ path.resolve(__dirname, '..') ]}))
     .pipe(rename('out.css'))
     .pipe(gulp.dest('./dist'));

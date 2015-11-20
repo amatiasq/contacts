@@ -1,10 +1,9 @@
 import React from 'react';
-import RouterStore from './routing-store';
-import RouterComponent from './routing-component';
+import RouterStore from './router-store';
 import { isDispatcher } from '../tools/dispatcher';
 
 
-export { ROUTE_CHANGE } from './routing-constants';
+export { ROUTE_CHANGE } from './router-constants';
 
 
 const attributeValidation = {
@@ -22,6 +21,8 @@ export default class Router extends React.Component {
   constructor(props) {
     super(props);
     this._store = new RouterStore(this.props.dispatcher, this.props.config);
+    this._store.loadState('default');
+
     this.bindTo(this._store, () => this._onChange());
     this.state = this._getState();
   }

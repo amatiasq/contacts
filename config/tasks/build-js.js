@@ -6,7 +6,7 @@ var conf = require('../../src/conf.json');
 
 
 gulp.task('build:js', function() {
-  return systemjs(conf, 'src/app.js')
+  return systemjs(conf, 'src/app/app.js')
     .pipe(rename('out.js'))
     .pipe(gulp.dest('./dist'));
 });

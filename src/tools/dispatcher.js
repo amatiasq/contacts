@@ -1,4 +1,4 @@
-import { Dispatcher } from '../node_modules/flux/dist/Flux';
+import { Dispatcher } from '../../node_modules/flux/dist/Flux';
 
 
 export default new Dispatcher();
