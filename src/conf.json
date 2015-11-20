@@ -1,0 +1,41 @@
+{
+  "transpiler": "babel",
+  "defaultJSExtensions": true,
+
+  "babelOptions": {
+    "optional": [ "runtime" ]
+  },
+
+  "paths": {
+    "npm:*": "node_modules/*",
+    "bower:*": "bower_components/*",
+    "json": "config/loaders/json",
+    "text": "config/loaders/text",
+    "config": "config/config",
+
+    "npm:babel-runtime/node_modules/core-js/library/fn/symbol": "node_modules/babel-runtime/node_modules/core-js/library/fn/symbol/index"
+  },
+
+  "map": {
+    "babel": "npm:babel/dist/browser",
+    "react": "bower:react/react",
+    "react-dom": "bower:react/react-dom",
+    "firebase": "bower:firebase/firebase",
+    "angularfire": "bower:angularfire/dist/angularfire",
+    "app-module": "module",
+
+    "babel-runtime": "npm:babel-runtime",
+    "core-js": "npm:babel-runtime/node_modules/core-js"
+  },
+
+  "meta": {
+    "firebase": {
+      "format": "global",
+      "exports": "Firebase"
+    },
+    "angularfire": {
+      "format": "global",
+      "deps": [ "firebase" ]
+    }
+  }
+}

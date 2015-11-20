@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description }}">
+    <meta name="author" content="{{ client }}">
+    <title>Contacts</title>
+    <base href="/" />
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ project }}" />
+    <meta property="og:image" content="{{ url }}" />
+    <meta property="og:description" content="{{ description }}" />
+
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <script src="//cdn.polyfill.io/v1/polyfill.min.js"></script>
+
+    <!-- build:css -->
+    <link rel="stylesheet/less" href="/styles.less">
+    <script>less = { env: "development", logLevel: 1 }</script>
+    <script src="/bower_components/less/dist/less.js"></script>
+    <!-- endbuild -->
+  </head>
+
+  <body>
+    <div id="app-container"></div>
+
+    <!-- build:js -->
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="/bootstrap.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
