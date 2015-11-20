@@ -6,6 +6,6 @@
 
   System.import('/conf.json!').then(function(config) {
     System.config(config);
-    return System.import('/app');
+    return System.import('/app/app');
   });
 })();
