@@ -1,6 +1,6 @@
 import React from 'react';
-import FABButton from 'react-mdl/lib/fabbutton';
-import Icon from 'react-mdl/lib/icon';
+import FABButton from 'react-mdl/lib/FABButton';
+import Icon from 'react-mdl/lib/Icon';
 import ContactsStore from './contacts-store';
 import { newContact } from '../app/actions';
 

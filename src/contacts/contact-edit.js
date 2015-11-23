@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from 'react-mdl/lib/button';
-import TextField from 'react-mdl/lib/textfield';
+import Button from 'react-mdl/lib/Button';
+import TextField from 'react-mdl/lib/Textfield';
 import { createContact } from '../app/actions';
 
 

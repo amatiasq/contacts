@@ -11,7 +11,7 @@
     "bower:*": "bower_components/*",
     "json": "config/loaders/json",
     "text": "config/loaders/text",
-    "config": "config/config",
+    "config": "config/config"
   },
 
   "map": {
@@ -23,9 +23,8 @@
     "firebase": "bower:firebase/firebase",
     "app-module": "module",
 
-    // deps deps
     "core-js": "npm:core-js",
-    "classnames": "npm:classnames",
+    "classnames": "npm:classnames"
   },
 
   "packages": {
