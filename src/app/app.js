@@ -1,3 +1,4 @@
+import 'react-mdl/extra/material.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dispatcher from '../tools/dispatcher';
@@ -11,7 +12,7 @@ import ContactEdit from '../contacts/contact-edit';
 import {
   ADD_CONTACT,
   VIEW_CONTACT,
-  EDIT_CONTACT
+  EDIT_CONTACT,
 } from './states';
 
 
@@ -55,6 +56,6 @@ const config = {
 
 
 ReactDOM.render(
-  <Router dispatcher={Dispatcher} config={config} />,
+  <Router dispatcher={Dispatcher} config={config} />,
   document.getElementById('app-container')
 );
