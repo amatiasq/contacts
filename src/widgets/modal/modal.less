@@ -1,15 +1,19 @@
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+.modal-component {
+  &.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 
-.modal-container {
-  width: 500px;
-  height: 500px;
-  margin: auto auto;
-  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+  .modal-container {
+    width: 500px;
+    height: 500px;
+    margin: 100px auto;
+    padding: 15px;
+    background: white;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  }
 }

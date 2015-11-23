@@ -8,8 +8,8 @@ export default class Modal extends React.Component {
 
   render() {
     return (
-      <div className="overlay">
-        <div className="modal-container">
+      <div className="modal-component overlay valign-wrapper">
+        <div className="modal-container valign">
           {this.props.children}
         </div>
       </div>

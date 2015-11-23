@@ -21,36 +21,41 @@ export default class Router extends React.Component {
   constructor(props) {
     super(props);
     this._store = new RouterStore(this.props.dispatcher, this.props.config);
-    this._store.loadState('default');
-
-    this.bindTo(this._store, () => this._onChange());
-    this.state = this._getState();
-  }
-
-  bindTo(store, listener) {
-    this.componentDidMount = () => store.addChangeListener(listener);
-    this.componentWillUnmount = () => store.removeChangeListener(listener);
-  }
-
-  _getState() {
-    return {
-      state: this._store.state,
-      params: this._store.params,
-    };
+    this._onChange = this._onChange.bind(this);
+    this._onUserNavigation = this._onUserNavigation.bind(this);
+    this._store.loadUrl(window.location.pathname);
   }
 
   _onChange() {
-    this.setState(this._getState());
+    this.forceUpdate();
+  }
+
+  _onUserNavigation() {
+    this._store.loadUrl(window.location.pathname);
+  }
+
+  componentDidMount() {
+    window.addEventListener('popstate', this._onUserNavigation);
+    this._store.addChangeListener(this._onChange);
+    this._store.loadUrl(window.location.pathname);
+  }
+
+  componentWillUnmount() {
+    this._store.removeChangeListener(this._onChange);
+    window.removeEventListener('popstate', this._onUserNavigation);
   }
 
   render() {
-    const state = this.state.state;
+    const state = this._store.state;
+    const params = this._store.params;
+    const url = this._store.getUrl(state, params);
     let template = state.template;
 
-    // TODO: Update browser url
+    if (window.location.pathname !== url)
+      window.history.pushState(null, window.title, url);
 
     if (!template)
-      template = state.handler(state.params);
+      template = state.handler(params);
 
     return <div id="flux-router">{template}</div>;
   }

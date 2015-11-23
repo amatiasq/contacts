@@ -1,4 +1,6 @@
 import React from 'react';
+import FABButton from 'react-mdl/lib/fabbutton';
+import Icon from 'react-mdl/lib/icon';
 import ContactsStore from './contacts-store';
 import { newContact } from '../app/actions';
 
@@ -6,7 +8,6 @@ import { newContact } from '../app/actions';
 export default class ContactList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this._getState();
     this.bindTo(ContactsStore, () => this._onChange());
   }
 
@@ -16,21 +17,23 @@ export default class ContactList extends React.Component {
   }
 
   _onChange() {
-    this.setState(this._getState());
-  }
-
-  _getState() {
-    return { contacts: ContactsStore.getAll() };
+    this.forceUpdate();
   }
 
   render() {
-    let list = this.state.contacts
-      .map(contact => <li>{contact.firstName} {contact.lastName}</li>);
+    const list = ContactsStore.getAll()
+      .map(contact => <li>{contact.lastName}, {contact.firstName}</li>)
 
     return (
-      <div>
+      <div className="contact-list-component">
         <ul>{list}</ul>
-        <button className="add-contact" onClick={newContact}>+</button>
+        <FABButton
+            onClick={newContact}
+            primary
+            ripple
+        >
+          <Icon name="add" />
+        </FABButton>
       </div>
     );
   }
