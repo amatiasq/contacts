@@ -1,8 +1,6 @@
 {
   "name": "contacts",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
+  "author": "A. Matías Quezada <amatiasq@gmail.com>",
   "dependencies": {
     "babel-preset-react": "^6.1.18",
     "babel-runtime": "^6.2.0",
@@ -29,11 +27,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amatiasq/contacts.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/amatiasq/contacts/issues"
   },
   "homepage": "https://github.com/amatiasq/contacts#readme"
 }
