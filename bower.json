@@ -1,9 +1,13 @@
 {
   "name": "contacts",
   "private": true,
-  "authors": [ "A. Matías Quezada <amatiasq@gmail.com>" ],
+  "authors": [
+    "A. Matías Quezada <amatiasq@gmail.com>"
+  ],
   "homepage": "https://github.com/amatiasq/contacts",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "firebase": "~2.3.2",
     "less": "~2.5.3",
     "react": "~0.14.3"
   }
