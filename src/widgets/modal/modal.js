@@ -1,24 +1,37 @@
+import autobind from 'decorators/autobind';
 import React, { PropTypes } from 'react';
+import Overlay from '../overlay/overlay';
 
 
 export default class Modal extends React.Component {
-  propTypes = {
+  static propTypes = {
     children: PropTypes.oneOfType([
       React.PropTypes.arrayOf(React.PropTypes.node),
       React.PropTypes.node,
     ]),
+    onClose: PropTypes.func,
   }
 
-  constructor(props) {
-    super(props);
+  @autobind
+  onModalClick(event) {
+    event.stopPropagation();
+  }
+
+  @autobind
+  onOverlayClick() {
+    this.props.onClose();
   }
 
   render() {
     return (
-      <div className="modal-component overlay valign-wrapper">
-        <div className="modal-container valign">
-          {this.props.children}
-        </div>
+      <div className="modal-component">
+        <Overlay onClick={this.onOverlayClick}>
+          <div
+            className="modal-container"
+            onClick={this.onModalClick}>
+            {this.props.children}
+          </div>
+        </Overlay>
       </div>
     );
   }

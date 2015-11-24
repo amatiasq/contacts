@@ -52,13 +52,13 @@ export default class ContactsStore extends Store {
     return this.loadState(state, this._getParamsFor(url, state));
   }
 
-  loadKey(key) {
+  loadKey(key, params) {
     const state = this._getStateByKey(key);
 
     if (!state)
       throw new Error(`State for key "${key}" not found`);
 
-    return this.loadState(state);
+    return this.loadState(state, params);
   }
 
   getUrl(state, params) {

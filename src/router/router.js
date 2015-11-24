@@ -8,7 +8,7 @@ export { ROUTE_CHANGE } from './router-constants';
 
 
 export default class Router extends React.Component {
-  propTypes = {
+  static propTypes = {
     config: PropTypes.object.isRequired,
     dispatcher: function(props, name) {
       if (!isDispatcher(props[name]))

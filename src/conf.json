@@ -29,13 +29,17 @@
     "firebase": "bower:firebase/firebase",
     "app-module": "module",
 
-    "core-js": "npm:core-js",
-    "classnames": "npm:classnames"
+    "clamp": "npm:clamp",
+    "classnames": "npm:classnames",
+    "core-js": "npm:core-js"
   },
 
   "packages": {
+    "react-mdl/lib/Card": { "main": "index.js" },
+    "react-mdl/lib/Layout": { "main": "index.js" },
     "core-js/library/fn/symbol": { "main": "index.js" },
     "classnames": { "main": "index.js" },
+    "clamp": { "main": "index.js" },
 
     "firebase": {
       "format": "global",
