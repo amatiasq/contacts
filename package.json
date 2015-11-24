@@ -4,8 +4,10 @@
   "dependencies": {},
   "devDependencies": {
     "babel": "^6.1.18",
+    "babel-eslint": "^4.1.6",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
+    "core-decorators": "^0.9.0",
     "eslint-plugin-react": "^3.9.0",
     "flux": "^2.1.1",
     "gulp": "^3.9.0",

@@ -1,3 +1,5 @@
+parser: babel-eslint
+
 plugins:
   - react
 
@@ -33,7 +35,7 @@ rules:
   no-empty: 2
   no-ex-assign: 2
   no-extra-boolean-cast: 2
-  no-extra-parens: 1
+  no-extra-parens: 0
   no-extra-semi: 2
   no-func-assign: 2
   no-inner-declarations: 1
@@ -168,34 +170,35 @@ rules:
   spaced-comment: [2, "always", { "exceptions": [ "*" ]}]
   wrap-regex: 0
 
+  # react
   jsx-quotes: 1
-  react/display-name: 1
+  react/display-name: [2, { "acceptTranspilerName": true }]
   react/forbid-prop-types: 1
-  react/jsx-boolean-value: 1
-  react/jsx-closing-bracket-location: 1
-  react/jsx-curly-spacing: 1
-  react/jsx-indent-props: 1
-  react/jsx-key: 1
-  react/jsx-max-props-per-line: 1
-  react/jsx-no-bind: 1
-  react/jsx-no-duplicate-props: 1
+  react/jsx-boolean-value: [2, "never"]
+  react/jsx-closing-bracket-location: [2, "after-props"]
+  react/jsx-curly-spacing: [1, "never"]
+  react/jsx-indent-props: [2, 2]
+  react/jsx-key: 2
+  react/jsx-max-props-per-line: [2, { "maximum": 1 }]
+  react/jsx-no-bind: 2
+  react/jsx-no-duplicate-props: [2, { "ignoreCase": false }]
   react/jsx-no-literals: 0
-  react/jsx-no-undef: 1
-  react/jsx-sort-prop-types: 1
-  react/jsx-sort-props: 1
-  react/jsx-uses-react: 1
-  react/jsx-uses-vars: 1
+  react/jsx-no-undef: 2
+  react/jsx-sort-prop-types: [2, { "ignoreCase": false, "callbacksLast": true }]
+  react/jsx-sort-props: [2, { "ignoreCase": false, "callbacksLast": true }]
+  react/jsx-uses-react: [2, { "pragma": "react" }]
+  react/jsx-uses-vars: 2
   react/no-danger: 1
   react/no-did-mount-set-state: 1
   react/no-did-update-set-state: 1
-  react/no-direct-mutation-state: 1
-  react/no-multi-comp: 1
-  react/no-set-state: 1
-  react/no-unknown-property: 1
+  react/no-direct-mutation-state: 2
+  react/no-multi-comp: [2, { "ignoreStateless": true }]
+  react/no-set-state: 2
+  react/no-unknown-property: 2
   react/prefer-es6-class: 1
-  react/prop-types: 1
-  react/react-in-jsx-scope: 1
-  react/require-extension: 1
+  react/prop-types: [2, { "ignore": []}]
+  react/react-in-jsx-scope: 2
+  react/require-extension: 0
   react/self-closing-comp: 1
   react/sort-comp: 1
-  react/wrap-multilines: 1
+  react/wrap-multilines: 2

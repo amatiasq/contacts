@@ -3,7 +3,12 @@
   "defaultJSExtensions": true,
 
   "babelOptions": {
-    "optional": [ "runtime" ]
+    "optional": [
+      "runtime",
+      "es7.classProperties",
+      "es7.decorators",
+      "es7.objectRestSpread"
+    ]
   },
 
   "paths": {
@@ -15,6 +20,7 @@
   },
 
   "map": {
+    "decorators": "npm:core-decorators/src",
     "babel": "npm:babel/dist/browser",
     "babel-runtime": "npm:babel-runtime",
     "react": "bower:react/react",
