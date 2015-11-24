@@ -67,7 +67,7 @@ export default class ContactEdit extends React.Component {
   }
 
   setValue(field, value) {
-    this.model[field] = value;
+    this.model[field] = value;
     this.forceUpdate();
   }
 
