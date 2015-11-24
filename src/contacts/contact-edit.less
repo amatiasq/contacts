@@ -1,0 +1,47 @@
+.contact-edit-component {
+  display: flex;
+  padding: 15px;
+
+  .aside {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    width: 200px;
+
+    .avatar {
+      width: 200px;
+      height: 200px;
+    }
+
+    .full-name {
+      .mdl-typography--display-1();
+      margin: 15px 0 0;
+      text-align: center;
+    }
+  }
+
+  .content {
+    header {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        margin-left: 15px;
+      }
+    }
+
+    .form-row {
+      display: flex;
+
+      .mdl-textfield { margin-left: 150px; }
+      label + .mdl-textfield { margin-left: 0; }
+
+      &> label {
+        width: 130px;
+        margin-right: 20px;
+        padding: 20px 0;
+      }
+    }
+  }
+}
