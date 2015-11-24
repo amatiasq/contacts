@@ -173,13 +173,13 @@ rules:
   # react
   jsx-quotes: 1
   react/display-name: [2, { "acceptTranspilerName": true }]
-  react/forbid-prop-types: 1
+  react/forbid-prop-types: 0
   react/jsx-boolean-value: [2, "never"]
   react/jsx-closing-bracket-location: [2, "after-props"]
   react/jsx-curly-spacing: [1, "never"]
   react/jsx-indent-props: [2, 2]
   react/jsx-key: 2
-  react/jsx-max-props-per-line: [2, { "maximum": 1 }]
+  react/jsx-max-props-per-line: [2, { "maximum": 2 }]
   react/jsx-no-bind: 2
   react/jsx-no-duplicate-props: [2, { "ignoreCase": false }]
   react/jsx-no-literals: 0
@@ -192,7 +192,7 @@ rules:
   react/no-did-mount-set-state: 1
   react/no-did-update-set-state: 1
   react/no-direct-mutation-state: 2
-  react/no-multi-comp: [2, { "ignoreStateless": true }]
+  react/no-multi-comp: [0, { "ignoreStateless": true }]
   react/no-set-state: 2
   react/no-unknown-property: 2
   react/prefer-es6-class: 1
