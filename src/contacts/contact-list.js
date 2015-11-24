@@ -1,4 +1,5 @@
 import React from 'react';
+import autobind from 'decorators/autobind';
 import FABButton from 'react-mdl/lib/FABButton';
 import Icon from 'react-mdl/lib/Icon';
 import ContactsStore from './contacts-store';
@@ -11,27 +12,29 @@ export default class ContactList extends React.Component {
     this.bindTo(ContactsStore, () => this._onChange());
   }
 
-  bindTo(store, listener) {
-    this.componentDidMount = () => store.addChangeListener(listener);
-    this.componentWillUnmount = () => store.removeChangeListener(listener);
+  componentDidMount() {
+    ContactsStore.addChangeListener(this.onChange);
+  }
+  componentWillUnmount() {
+    ContactsStore.removeChangeListener(this.onChange);
   }
 
-  _onChange() {
+  @autobind
+  onChange() {
     this.forceUpdate();
   }
 
   render() {
     const list = ContactsStore.getAll()
-      .map(contact => <li>{contact.lastName}, {contact.firstName}</li>)
+      .map(contact => <li>{contact.lastName}, {contact.firstName}</li>);
 
     return (
       <div className="contact-list-component">
         <ul>{list}</ul>
         <FABButton
-            onClick={newContact}
-            primary
-            ripple
-        >
+          primary
+          ripple
+          onClick={newContact}>
           <Icon name="add" />
         </FABButton>
       </div>
