@@ -56,7 +56,7 @@ export default class ContactsStore extends Store {
     const state = this._getStateByKey(key);
 
     if (!state)
-      throw new Error(`State for key "${key}" not found`);
+      throw new Error(`State for key "${key}" not found`);
 
     return this.loadState(state);
   }

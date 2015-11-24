@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint "react/forbid-prop-types":0 */
+import React, { PropTypes } from 'react';
 import RouterStore from './router-store';
 import { isDispatcher } from '../tools/dispatcher';
 
@@ -6,31 +7,20 @@ import { isDispatcher } from '../tools/dispatcher';
 export { ROUTE_CHANGE } from './router-constants';
 
 
-const attributeValidation = {
-  config: React.PropTypes.object.isRequired,
-  dispatcher(props, name) {
-    if (!isDispatcher(props[name]))
-      return new Error('Router\'s "dispatcher" attribute should be a Flux dispatcher');
-  },
-};
-
-
 export default class Router extends React.Component {
-  static propTypes: attributeValidation
+  propTypes = {
+    config: PropTypes.object.isRequired,
+    dispatcher: function(props, name) {
+      if (!isDispatcher(props[name]))
+        return new Error('Router\'s "dispatcher" attribute should be a Flux dispatcher');
+    },
+  }
 
   constructor(props) {
     super(props);
     this._store = new RouterStore(this.props.dispatcher, this.props.config);
     this._onChange = this._onChange.bind(this);
     this._onUserNavigation = this._onUserNavigation.bind(this);
-    this._store.loadUrl(window.location.pathname);
-  }
-
-  _onChange() {
-    this.forceUpdate();
-  }
-
-  _onUserNavigation() {
     this._store.loadUrl(window.location.pathname);
   }
 
@@ -43,6 +33,14 @@ export default class Router extends React.Component {
   componentWillUnmount() {
     this._store.removeChangeListener(this._onChange);
     window.removeEventListener('popstate', this._onUserNavigation);
+  }
+
+  _onChange() {
+    this.forceUpdate();
+  }
+
+  _onUserNavigation() {
+    this._store.loadUrl(window.location.pathname);
   }
 
   render() {

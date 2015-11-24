@@ -12,7 +12,8 @@ var runSequence = require('run-sequence');
 
 gulp.task('build', function(done) {
   runSequence(
-    [ 'clean' ], //, 'lint' ],
+    [ 'clean' ]
+    // , 'lint' ],
     [ 'build:css', 'build:js' ],
     'build:html',
     done

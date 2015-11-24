@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 
 export default class Modal extends React.Component {
+  propTypes = {
+    children: PropTypes.oneOfType([
+      React.PropTypes.arrayOf(React.PropTypes.node),
+      React.PropTypes.node,
+    ]),
+  }
+
   constructor(props) {
     super(props);
   }

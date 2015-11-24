@@ -186,7 +186,7 @@ rules:
   react/jsx-no-undef: 2
   react/jsx-sort-prop-types: [2, { "ignoreCase": false, "callbacksLast": true }]
   react/jsx-sort-props: [2, { "ignoreCase": false, "callbacksLast": true }]
-  react/jsx-uses-react: [2, { "pragma": "react" }]
+  react/jsx-uses-react: 1
   react/jsx-uses-vars: 2
   react/no-danger: 1
   react/no-did-mount-set-state: 1

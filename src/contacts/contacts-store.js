@@ -16,14 +16,16 @@ export default new class ContactsStore extends Store {
 
   _handle(payload) {
     switch (payload.type) {
-      case constants.CREATE_CONTACT:
-        this._contacts.push(payload.data);
-        this._emitChange();
+    case constants.CREATE_CONTACT:
+      this._contacts.push(payload.data);
+      this._emitChange();
 
-        // HACK: This is not going to be like this with a good Dispatcher implementation
-        setTimeout(() => goToList(), 0);
+      // HACK: This is not going to be like this with a good Dispatcher implementation
+      setTimeout(() => goToList(), 0);
 
-        break;
+      break;
+
+    default:
     }
   }
-}
+};

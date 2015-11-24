@@ -11,8 +11,8 @@ import ContactEdit from '../contacts/contact-edit';
 
 import {
   ADD_CONTACT,
-  VIEW_CONTACT,
-  EDIT_CONTACT,
+//  VIEW_CONTACT,
+//  EDIT_CONTACT,
 } from './states';
 
 
@@ -27,7 +27,7 @@ const config = {
     template: (
       <div>
         <ContactsList />
-        <Modal><ContactEdit isNew={true} /></Modal>
+        <Modal><ContactEdit isNew /></Modal>
       </div>
     ),
   },
@@ -56,6 +56,8 @@ const config = {
 
 
 ReactDOM.render(
-  <Router dispatcher={Dispatcher} config={config} />,
+  <Router
+    config={config}
+    dispatcher={Dispatcher} />,
   document.getElementById('app-container')
 );

@@ -1,4 +1,4 @@
-/* globals module, require, Buffer */
+/* eslint-env node */
 
 var gutil = require('gulp-util');
 var through = require('through2');
