@@ -10,10 +10,10 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
 
+    // , 'lint' ],
 gulp.task('build', function(done) {
   runSequence(
-    [ 'clean' ]
-    // , 'lint' ],
+    [ 'clean' ],
     [ 'build:css', 'build:js' ],
     'build:html',
     done
