@@ -17,7 +17,10 @@ function onRouteChange({ state, redirect }) {
     redirect(LOGIN, { redirectTo: state });
 }
 
-UserStore.addChangeListener(() => Dispatcher.dispatch({ type: ROUTER_RELOAD }));
+UserStore.addChangeListener(() => {
+  if (!Dispatcher.isDispatching())
+    Dispatcher.dispatch({ type: ROUTER_RELOAD });
+});
 
 
 ReactDOM.render(
