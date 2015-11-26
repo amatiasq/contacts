@@ -4,7 +4,10 @@ import RouterStore from './router-store';
 import { isDispatcher } from '../tools/dispatcher';
 
 
-export { ROUTE_CHANGE } from './router-constants';
+export {
+  ROUTE_CHANGE,
+  ROUTER_RELOAD,
+} from './router-constants';
 
 
 export default class Router extends React.Component {
@@ -37,12 +40,11 @@ export default class Router extends React.Component {
   }
 
   _handleChange(state, params) {
+    const url = this._store.getUrl(state, params);
     let isCancelled = false;
 
     this.props.onChange({
-      state,
-      params,
-      cancel,
+      url, state, params, cancel,
       redirect: (state, params) => {
         cancel();
         this._store.loadKey(state, params);

@@ -1,5 +1,9 @@
 export const LOGIN = Symbol();
-export const REGISTER = Symbol();
+export const LOGOUT = Symbol();
+export const CONNECT_FACEBOOK = Symbol();
+export const CONNECT_GOOGLE = Symbol();
+export const CONNECT_TWITTER = Symbol();
+export const CONNECT_GITHUB = Symbol();
 export const ADD_CONTACT = Symbol();
 export const SAVE_CONTACT = Symbol();
 export const REMOVE_CONTACT = Symbol();

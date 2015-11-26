@@ -4,33 +4,25 @@ import Button from 'react-mdl/lib/Button';
 import TextField from 'react-mdl/lib/Textfield';
 import {
   login,
-  register,
+  connectFacebook,
+  connectGoogle,
+  connectTwitter,
+  connectGithub,
 } from '../app/actions';
 
 
-export default class ContactEdit extends React.Component {
+export default class Login extends React.Component {
   static propTypes = {}
 
   constructor(props) {
     super(props);
     this.model = {};
-    this.action = null;
   }
 
   @autobind
   onFormSubmit(event) {
     event.preventDefault();
-    this.action(this.model.email, this.model.password);
-  }
-
-  @autobind
-  onRegisterClick() {
-    this.action = register;
-  }
-
-  @autobind
-  onLoginClick() {
-    this.action = login;
+    login(this.model.email, this.model.password);
   }
 
   @autobind
@@ -46,37 +38,49 @@ export default class ContactEdit extends React.Component {
   render() {
     return (
       <form
-        className="contact-edit-component"
+        className="login-component"
         onSubmit={this.onFormSubmit}>
 
-        <TextField
-          label="Email"
-          required
-          type="email"
-          onChange={this.onEmailChange}/>
+        <div className="center">
 
-        <TextField
-          label="Password"
-          required
-          type="password"
-          onChange={this.onPasswordChange}/>
+          <TextField
+            label="Email"
+            required
+            type="email"
+            onChange={this.onEmailChange}/>
 
-        <Button
-          primary
-          raised
-          ripple
-          onClick={this.onRegisterClick}>
-          Register
-        </Button>
+          <TextField
+            label="Password"
+            required
+            type="password"
+            onChange={this.onPasswordChange}/>
 
-        <Button
-          primary
-          raised
-          ripple
-          onClick={this.onLoginClick}>
-          Login
-        </Button>
+          <Button
+            primary
+            raised
+            ripple
+            onClick={this.onLoginClick}>
+            Register / Login
+          </Button>
+
+          <div className="connectors">
+            <IconButton name="facebook-official" onClick={connectFacebook} />
+            <IconButton name="google" onClick={connectGoogle} />
+            <IconButton name="twitter" onClick={connectTwitter} />
+            <IconButton name="github" onClick={connectGithub} />
+          </div>
+        </div>
       </form>
     );
   }
+}
+
+
+function IconButton(props) {
+  const { name, ...rest } = props;
+  return (
+    <Button type="button" {...rest}>
+      <i className={'fa fa-' + name} />
+    </Button>
+  );
 }

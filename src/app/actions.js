@@ -56,6 +56,11 @@ export function removeContact(key) {
   });
 }
 
+
+/*
+ * Session management
+ */
+
 export function login(email, password) {
   Dispatcher.dispatch({
     type: constants.LOGIN,
@@ -63,9 +68,19 @@ export function login(email, password) {
   });
 }
 
-export function register(email, password) {
-  Dispatcher.dispatch({
-    type: constants.REGISTER,
-    email, password,
-  });
+export function logout() {
+  Dispatcher.dispatch({ type: constants.LOGOUT });
+}
+
+export function connectFacebook() {
+  Dispatcher.dispatch({ type: constants.CONNECT_FACEBOOK });
+}
+export function connectGoogle() {
+  Dispatcher.dispatch({ type: constants.CONNECT_GOOGLE });
+}
+export function connectTwitter() {
+  Dispatcher.dispatch({ type: constants.CONNECT_TWITTER });
+}
+export function connectGithub() {
+  Dispatcher.dispatch({ type: constants.CONNECT_GITHUB });
 }

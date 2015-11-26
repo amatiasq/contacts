@@ -3,6 +3,7 @@ import autobind from 'decorators/autobind';
 import FABButton from 'react-mdl/lib/FABButton';
 import Icon from 'react-mdl/lib/Icon';
 import IconButton from 'react-mdl/lib/IconButton';
+import Logout from '../login/logout';
 import ContactsStore from './contacts-store';
 import {
   newContact,
@@ -26,10 +27,17 @@ export default class ContactList extends React.Component {
 
   render() {
     const list = ContactsStore.getAll().map(contact => <ContactItem contact={contact} key={contact.$key} />);
+    const noContacts = <tr><th className="mdl-data-table__cell--non-numeric">No contacts</th></tr>;
 
     return (
       <div className="contact-list-component">
-        <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">{list}</table>
+        <Logout />
+
+        <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <tbody>
+            {list.length ? list : noContacts}
+          </tbody>
+        </table>
 
         <FABButton
           className="add-contact"

@@ -1,9 +1,9 @@
 import autobind from 'decorators/autobind';
-import Firebase from 'firebase';
 import Store from '../tools/store';
 import Dispatcher from '../tools/dispatcher';
 import { goToList } from '../app/actions';
 import * as constants from '../app/constants';
+import UserStore from '../login/user-store';
 
 
 const handlers = {
@@ -28,10 +28,26 @@ export default new class ContactsStore extends Store {
   constructor() {
     super(Dispatcher, handlers);
     this._contacts = [];
-    this.ref = new Firebase('https://amq-contacts.firebaseio.com/contacts/');
-    this.ref.on('child_added', this.onChildAdded);
-    this.ref.on('child_removed', this.onChildRemoved);
-    this.ref.on('child_changed', this.onChildChanged);
+
+    UserStore.addChangeListener(() => {
+      if (this.ref) {
+        this.ref.off('child_added', this.onChildAdded);
+        this.ref.off('child_removed', this.onChildRemoved);
+        this.ref.off('child_changed', this.onChildChanged);
+      }
+
+      this._contacts = [];
+      const ref = UserStore.getPrivateStorage();
+
+      if (ref) {
+        this.ref = ref.child('contacts');
+        this.ref.on('child_added', this.onChildAdded);
+        this.ref.on('child_removed', this.onChildRemoved);
+        this.ref.on('child_changed', this.onChildChanged);
+      }
+
+      this._emitChange();
+    });
   }
 
   off(signal, listener) {

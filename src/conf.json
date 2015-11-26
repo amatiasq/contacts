@@ -26,7 +26,8 @@
     "react": "bower:react/react",
     "react-dom": "bower:react/react-dom",
     "react-mdl": "npm:react-mdl",
-    "firebase": "bower:firebase/firebase",
+    "firebase-lib": "bower:firebase/firebase",
+    "firebase": "tools/firebase-wrapper",
     "app-module": "module",
 
     "clamp": "npm:clamp",
@@ -39,11 +40,14 @@
     "react-mdl/lib/Layout": { "main": "index.js" },
     "core-js/library/fn/symbol": { "main": "index.js" },
     "classnames": { "main": "index.js" },
-    "clamp": { "main": "index.js" },
+    "clamp": { "main": "index.js" }
+  },
 
+  "meta": {
     "firebase": {
+      "deps": [ "firebase-lib" ],
       "format": "global",
-      "exports": "Firebase"
+      "exports": "FirebasePromise"
     }
   }
 }

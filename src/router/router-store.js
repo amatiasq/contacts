@@ -1,5 +1,8 @@
 import Store from '../tools/store';
-import { ROUTE_CHANGE } from './router-constants';
+import {
+  ROUTE_CHANGE,
+  ROUTER_RELOAD,
+} from './router-constants';
 
 
 export default class ContactsStore extends Store {
@@ -7,7 +10,7 @@ export default class ContactsStore extends Store {
     super(dispatcher);
     this.setConfig(config);
     this.state = null;
-    this.template = null;
+    this.params = null;
   }
 
   setConfig(config) {
@@ -19,6 +22,9 @@ export default class ContactsStore extends Store {
   _handle(payload) {
     if (payload.type === ROUTE_CHANGE)
       this.loadKey(payload.state, payload.params);
+
+    if (payload.type === ROUTER_RELOAD)
+      this._emitChange();
   }
 
   _getStateByKey(key) {

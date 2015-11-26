@@ -1,0 +1,24 @@
+.login-component {
+  // Fill page
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  // Centering children
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .center {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .connectors {
+    display: flex;
+    margin-top: 20px;
+    &> button { flex: 1 }
+  }
+}
