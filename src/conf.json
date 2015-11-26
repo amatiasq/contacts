@@ -27,7 +27,7 @@
     "react-dom": "bower:react/react-dom",
     "react-mdl": "npm:react-mdl",
     "firebase-lib": "bower:firebase/firebase",
-    "firebase": "tools/firebase-wrapper",
+    "firebase": "src/tools/firebase-wrapper",
     "app-module": "module",
 
     "clamp": "npm:clamp",
