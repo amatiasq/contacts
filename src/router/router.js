@@ -14,6 +14,7 @@ export default class Router extends React.Component {
       if (!isDispatcher(props[name]))
         return new Error('Router\'s "dispatcher" attribute should be a Flux dispatcher');
     },
+    onChange: PropTypes.func,
   }
 
   constructor(props) {
@@ -35,7 +36,33 @@ export default class Router extends React.Component {
     window.removeEventListener('popstate', this._onUserNavigation);
   }
 
+  _handleChange(state, params) {
+    let isCancelled = false;
+
+    this.props.onChange({
+      state,
+      params,
+      cancel,
+      redirect: (state, params) => {
+        cancel();
+        this._store.loadKey(state, params);
+      },
+    });
+
+    return isCancelled;
+
+    function cancel() {
+      isCancelled = true;
+    }
+  }
+
   _onChange() {
+    const { state, params } = this._store;
+
+    // If change was cancelled
+    if (this._handleChange(state, params))
+      return;
+
     this.forceUpdate();
   }
 
@@ -44,8 +71,7 @@ export default class Router extends React.Component {
   }
 
   render() {
-    const state = this._store.state;
-    const params = this._store.params;
+    const { state, params } = this._store;
     const url = this._store.getUrl(state, params);
     let template = state.template;
 

@@ -55,3 +55,17 @@ export function removeContact(key) {
     key,
   });
 }
+
+export function login(email, password) {
+  Dispatcher.dispatch({
+    type: constants.LOGIN,
+    email, password,
+  });
+}
+
+export function register(email, password) {
+  Dispatcher.dispatch({
+    type: constants.REGISTER,
+    email, password,
+  });
+}

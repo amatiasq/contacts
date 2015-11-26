@@ -5,6 +5,7 @@
 
 import React from 'react';
 import Modal from '../widgets/modal/modal';
+import Login from '../login/login';
 import ContactsList from '../contacts/contact-list';
 // import ContactsView from '../contacts/contact-view';
 import ContactEdit from '../contacts/contact-edit';
@@ -12,6 +13,7 @@ import { goToList } from './actions';
 
 
 import {
+  LOGIN,
   ADD_CONTACT,
 //  VIEW_CONTACT,
   EDIT_CONTACT,
@@ -22,6 +24,11 @@ export default {
   default: {
     url: '/',
     template: <ContactsList />,
+  },
+
+  [LOGIN]: {
+    url: '/login',
+    template: <Login />,
   },
 
   [ADD_CONTACT]: {

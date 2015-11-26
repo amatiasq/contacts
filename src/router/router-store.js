@@ -55,8 +55,10 @@ export default class ContactsStore extends Store {
   loadKey(key, params) {
     const state = this._getStateByKey(key);
 
-    if (!state)
+    if (!state) {
+      debugger;
       throw new Error(`State for key "${key}" not found`);
+    }
 
     return this.loadState(state, params);
   }
