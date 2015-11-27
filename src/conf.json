@@ -28,7 +28,6 @@
     "react-mdl": "npm:react-mdl",
     "firebase-lib": "bower:firebase/firebase",
     "firebase": "src/tools/firebase-wrapper",
-    "app-module": "module",
 
     "clamp": "npm:clamp",
     "classnames": "npm:classnames",

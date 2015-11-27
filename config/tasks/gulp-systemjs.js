@@ -9,13 +9,13 @@ module.exports = gulpSystemJS;
 gulpSystemJS.debug = debug;
 
 
-function gulpSystemJS(config, module) {
+function gulpSystemJS(config, module, params) {
   var stream = through.obj(function(file, enc, callback) {
     this.push(file);
     callback();
   });
 
-  new Builder(config).buildStatic(module).then(function(output) {
+  new Builder(config).buildStatic(module, params).then(function(output) {
     var source = output.source;
     var file = new gutil.File({
       cwd: '',
